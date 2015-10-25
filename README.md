@@ -58,9 +58,7 @@ A Replicated Stack or Set Program Based on Jgroups
 - `quit` : stop program
 
 ## Testing
-#### Scenario Testing:
-
-## Stack Scenario
+#### Stack Scenario
 1. Create First Stack
 2. Test top
 3. Test pop
@@ -74,7 +72,7 @@ A Replicated Stack or Set Program Based on Jgroups
 11. Test second stack top
 12. Test first stack pop
 
-## Set Scenario
+#### Set Scenario
 1. Create First Set
 2. Test First Set Add "albedo"
 3. Test First Set Add "albedo"
