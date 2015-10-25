@@ -4,7 +4,7 @@ A Replicated Stack or Set Program Based on Jgroups
 ## Requirements
  - JDK >= 1.8
  - [Maven](https://maven.apache.org/download.cgi)
- - [JGroups 3.6.6.Final](http://sourceforge.net/projects/javagroups/files/JGroups/)
+ - [JGroups 3.6.6.Final]
 
 ## How to Build
 1. Resolve maven dependency
@@ -23,12 +23,24 @@ A Replicated Stack or Set Program Based on Jgroups
 1. Run `ReplStack` from the generated `jar` in `target` folder
 
 	 ```
-	 $ java -cp target/dependency/*:target/kafka-chat-1.0.jar ReplStack.java
+	 $ java -cp target/dependency/*:target/jgroupStack-1.0-SNAPSHOT.jar ReplStack
 	 ```
 2. Run `ReplSet` from the generated `jar` in `target` folder
 
 	 ```
-	 $ java -cp target/dependency/*:target/kafka-chat-1.0.jar ReplSet.java
+	 $ java -cp target/dependency/*:target/jgroupStack-1.0-SNAPSHOT.jar ReplSet
+	 ```
+	 
+3. Run `ReplTest` method `TestStack`
+
+	 ```
+	 $ mvn -Dtest=ReplTest#TestStack test
+	 ```
+
+4. Run `ReplTest` method `TestSet`
+
+	 ```
+	 $ mvn -Dtest=ReplTest#TestSet test
 	 ```
 
 ## Stack Commands
@@ -47,7 +59,33 @@ A Replicated Stack or Set Program Based on Jgroups
 
 ## Testing
 #### Scenario Testing:
-*  
+
+## Stack Scenario
+1. Create First Stack
+2. Test top
+3. Test pop
+4. push "nabe"
+5. test top
+6. Create Second Stack
+7. test Second Stack top
+8. push "urumi"
+9. Test first stack top
+10. Test second stack pop
+11. Test second stack top
+12. Test first stack pop
+
+## Set Scenario
+1. Create First Set
+2. Test First Set Add "albedo"
+3. Test First Set Add "albedo"
+4. Create Second Set
+5. Test Second Set Contains "albedo"
+6. Test Second Set Contains "albedos"
+7. Test Second Set add "shalltear"
+8. Test Second Set remove "albedoes"
+9. Test Second Set remove "albedo"
+10. Test First Set remove "shalltear"
+11. Test First Set remove "shalltear"
 
 #### Testing Screenshoot:
 ![alt text](https://github.com/edmundophie/kafka-chat/blob/master/blob/testing_screenshot_prak_5.png "Testing Result")
