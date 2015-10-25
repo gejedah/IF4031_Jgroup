@@ -4,7 +4,7 @@ A Replicated Stack or Set Program Based on Jgroups
 ## Requirements
  - JDK >= 1.8
  - [Maven](https://maven.apache.org/download.cgi)
- - [JGroups 3.6.6.Final]
+ - JGroups 3.6.6.Final
 
 ## How to Build
 1. Resolve maven dependency
@@ -86,7 +86,8 @@ A Replicated Stack or Set Program Based on Jgroups
 11. Test First Set remove "shalltear"
 
 #### Testing Screenshoot:
-![alt text](https://github.com/edmundophie/kafka-chat/blob/master/blob/testing_screenshot_prak_5.png "Testing Result")
+![alt text](https://github.com/gejedah/IF4031_Jgroup/blob/master/blob/prak_6_test_set.png "Testing Set Result")
+![alt text](https://github.com/gejedah/IF4031_Jgroup/blob/master/blob/prak_6_test_stack.png "Testing Stack Result")
 
 ## Team Member
 - Edmund Ophie 13512095
