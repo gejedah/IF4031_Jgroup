@@ -25,17 +25,17 @@ public class ReplStack<T> extends ReceiverAdapter {
         channel.getState(null, 0);
     }
 
-    public void push(T t) throws Exception {
-        SerializedObj<T> obj = new SerializedObj<T>(SerializedObj.STACK_PUSH);
-        obj.setValue(t);
-        Message msg=new Message(null, null, obj);
+    public void push(T obj) throws Exception {
+        SerializedObj<T> serialized_obj = new SerializedObj<T>(SerializedObj.STACK_PUSH);
+        serialized_obj.setValue(obj);
+        Message msg=new Message(null, null, serialized_obj);
         channel.send(msg);
     };
 
     public T pop() throws Exception {
         T feedback = top();
-        SerializedObj<T> obj = new SerializedObj<T>(SerializedObj.STACK_POP);
-        Message msg=new Message(null, null, obj);
+        SerializedObj<T> serialized_obj = new SerializedObj<T>(SerializedObj.STACK_POP);
+        Message msg=new Message(null, null, serialized_obj);
         channel.send(msg);
         return feedback;
     };
@@ -64,13 +64,13 @@ public class ReplStack<T> extends ReceiverAdapter {
 
     public void receive(Message msg) {
         if ( msg.getObject() instanceof SerializedObj){
-            SerializedObj<T> obj = ((SerializedObj) msg.getObject());
-            if (obj.getType() == SerializedObj.STACK_PUSH){
+            SerializedObj<T> serialized_obj = ((SerializedObj) msg.getObject());
+            if (serialized_obj.getType() == SerializedObj.STACK_PUSH){
                 synchronized (stack){
-                    stack.push(obj.getValue());
+                    stack.push(serialized_obj.getValue());
                 }
             }
-            else if (obj.getType() == SerializedObj.STACK_POP){
+            else if (serialized_obj.getType() == SerializedObj.STACK_POP){
                 synchronized (stack){
                     if (stack.empty()){
                         System.out.println("Stack kosong!!");
@@ -90,14 +90,14 @@ public class ReplStack<T> extends ReceiverAdapter {
     }
 
     public void setState(InputStream input) throws Exception {
-        List<T> list;
-        list = (List<T>) Util.objectFromStream(new DataInputStream(input));
+        Stack<T> another_stack;
+        another_stack = (Stack<T>) Util.objectFromStream(new DataInputStream(input));
         synchronized(stack) {
             stack.clear();
-            stack.addAll(list);
+            stack.addAll(another_stack);
         }
-        System.out.println(list.size() + " elemen in stack history):");
-        for(T str: list)
+        System.out.println(another_stack.size() + " elemen in stack history):");
+        for(T str: another_stack)
             System.out.println(str);
     }
 
