@@ -6,6 +6,7 @@ A Replicated Stack or Set Program Based on Jgroups
  - [Maven](https://maven.apache.org/download.cgi)
 
 ## How to Build
+
 1. Resolve maven dependency
 
 	 ```
