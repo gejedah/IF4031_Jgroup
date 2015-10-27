@@ -19,24 +19,37 @@ A Replicated Stack or Set Program Based on Jgroups
 
 ## How to Run
 
-1. Run `ReplStack` from the generated `jar` in `target` folder
+1. Sebelum menjalankan aplikasi ini, pastikan bahwa node jgroups di dalam cluster bisa saling mendeteksi satu sama lain.
+   Jika node di dalam cluster tidak bisa saling mendeteksi satu sama lain, maka tambahkan kode berikut melalui terminal
+   
+   opsi tambahan pada command 2 - 3 di bawah
+   ```
+   $ -Djgroups.bind_addr=127.0.0.1 -Djava.net.preferIPv4Stack=true
+   ```
+   
+   kemudian
+   ```
+   $ route add -net 224.0.0.0 netmask 240.0.0.0 dev lo
+   ```
+
+2. Run `ReplStack` from the generated `jar` in `target` folder
 
 	 ```
 	 $ java -cp target/dependency/*:target/jgroupStack-1.0-SNAPSHOT.jar ReplStack
 	 ```
-2. Run `ReplSet` from the generated `jar` in `target` folder
+3. Run `ReplSet` from the generated `jar` in `target` folder
 
 	 ```
 	 $ java -cp target/dependency/*:target/jgroupStack-1.0-SNAPSHOT.jar ReplSet
 	 ```
 	 
-3. Run `ReplTest` method `TestStack`
+4. Run `ReplTest` method `TestStack`
 
 	 ```
 	 $ mvn -Dtest=ReplTest#TestStack test
 	 ```
 
-4. Run `ReplTest` method `TestSet`
+5. Run `ReplTest` method `TestSet`
 
 	 ```
 	 $ mvn -Dtest=ReplTest#TestSet test
