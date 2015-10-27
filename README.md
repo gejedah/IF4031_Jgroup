@@ -4,7 +4,6 @@ A Replicated Stack or Set Program Based on Jgroups
 ## Requirements
  - JDK >= 1.8
  - [Maven](https://maven.apache.org/download.cgi)
- - JGroups 3.6.6.Final
 
 ## How to Build
 1. Resolve maven dependency
