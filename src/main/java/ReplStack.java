@@ -7,6 +7,7 @@ import org.jgroups.util.Util;
 import java.io.*;
 import java.util.Collection;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Stack;
 
 /**
@@ -103,7 +104,7 @@ public class ReplStack<T> extends ReceiverAdapter {
 
     public static void main(String[] args) throws Exception {
         BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
-        ReplStack<String> repl_stack = new ReplStack<String>();
+        ReplStack<Object> repl_stack = new ReplStack<Object>();
 
         while(true) {
             try {
@@ -115,7 +116,7 @@ public class ReplStack<T> extends ReceiverAdapter {
                 }
                 else if (line.startsWith("push")){
                     if (inputs.length == 2){
-                        repl_stack.push(inputs[1]);
+                        repl_stack.push((inputs[1]));
                     }
                     else{
                         System.out.println("Usage: push <value_object>");

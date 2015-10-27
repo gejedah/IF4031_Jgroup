@@ -10,7 +10,7 @@ public class ReplTest {
 
     @Test
     public void TestStack() throws Exception {
-        ReplStack<String> first_stack = new ReplStack<String>();
+        ReplStack<Object> first_stack = new ReplStack<Object>();
         assertEquals("Stack must be null", null, first_stack.top());
         assertEquals(null, first_stack.pop());
         first_stack.push("nabe");
@@ -31,7 +31,7 @@ public class ReplTest {
 
     @Test
     public void TestSet() throws Exception {
-        ReplSet<String> first_set = new ReplSet<String>();
+        ReplSet<Object> first_set = new ReplSet<Object>();
         assertEquals(true, first_set.add("albedo"));
         Thread.sleep(1000);
         assertEquals(false, first_set.add("albedo"));
@@ -46,6 +46,5 @@ public class ReplTest {
         Thread.sleep(1000);
         assertEquals(false, first_set.remove("shalltear"));
     }
-
 
 }

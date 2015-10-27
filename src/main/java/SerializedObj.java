@@ -3,7 +3,7 @@ import java.io.Serializable;
 /**
  * Created by kevinzhong on 25/10/15.
  */
-public class SerializedObj<T> implements Serializable {
+public class SerializedObj<T> implements Serializable{
     int type;
     T value;
 

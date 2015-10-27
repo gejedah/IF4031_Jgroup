@@ -104,7 +104,7 @@ public class ReplSet<T> extends ReceiverAdapter {
 
     public static void main(String[] args) throws Exception {
         BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
-        ReplSet<String> repl_set = new ReplSet<String>();
+        ReplSet<Object> repl_set = new ReplSet<Object>();
 
         while(true) {
             try {
