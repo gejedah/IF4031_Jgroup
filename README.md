@@ -17,6 +17,12 @@ A Replicated Stack or Set Program Based on Jgroups
 	 ```
 	 $ mvn package
 	 ```
+## Some Note
+
+1. 	Ketika pengetesan dilakukan secara otomatis via Junit, proses pengetesan berlangsung sangat cepat, hal ini bisa menyebabkan
+	hasil tes terkadang failure terkadang success karena proses sinkronisasi pada Jgroups yang belum selesai dilakukan atau 
+	kurang cepat dibandingkan jalannya thread Junit. Namun hal serupa tidak terjadi ketika pengetesan dilakukan secara manual.
+
 
 ## How to Run
 
